@@ -1,39 +1,39 @@
-When installing Parrot os 7 on an nvidia 5000 series graphic cards there were issues.
+When installing Parrot os 7 on an nvidia 5000 (Blackwell) series graphic cards there were issues.
 
 At first the system would only boot in tty mode.
 
-to fix this issue I use xorg.
+To fix this issue I use xorg.
 using:
-sudo apt install xorg.
 
-after that I used startx to launch the interface and be able to install parrot.
+    sudo apt install xorg
 
-The problem we have is that Parrot os only uses wayland. And the parrot os repo does not have drivers for new graphics cards.
+After that I used startx to launch the interface and be able to install parrot.
 
-when booting at first the new installation the same problem appears.
+The problem we have is that Parrot os uses wayland by default. The parrot os repo also does not have drivers for new graphics cards.
 
-to fix this we can login then use sudo parrot-upgrade
+When booting at first the new installation the same problem appears, it will be running on tty1
 
-sudo apt update
+to fix this we can login then use 
 
-sudo apt install xorg
+    sudo parrot-upgrade
+    sudo apt update
+    sudo apt install xorg
 
-we can stop here, however we want to be able to use the drivers.
+We can stop here, however we want to be able to use the drivers.
 
-then we do
+Then we do
 
-startx
+    startx
 
-it will launch the desktop environment.
+It will launch the desktop environment.
 
 From here on we go to the Nvidia Website to download the drivers.
 
 
 After that we change permissions on the .run file to exexcute by using
 
-Chmod +x file-name.run
-
-Then sudo ./file-name.run
+    chmod +x file-name.run
+    sudo ./file-name.run
 
 We choose the MIT/GPL option when it pops up.
 
@@ -49,28 +49,25 @@ After that keep installing the drivers.
 
 Once the drivers finished installing:
 
-go to /etc/modprobe.d/
+Go to /etc/modprobe.d/
 
-cd /etc/modprobe.d/
+    cd /etc/modprobe.d/
 
-add
+and add
 
 
-blacklist nouveau
-
-options nouveau modeset=0
-
-alias nouveau off
+    blacklist nouveau
+    options nouveau modeset=0
+    alias nouveau off
 
 to the blacklist-nouveau.conf if you do not have that file it could be blacklist-libnfc.conf
 
-then we want to do
+int the same folder we do:
 
-sudo echo "options nvidia-drm modeset=1" > nvidia-kernel-common.conf
+    sudo echo "options nvidia-drm modeset=1" > nvidia-kernel-common.conf
+    sudo update-initramfs -u
 
-sudo update-initramfs -u
-
-Now you should have wayland working when you reboot your parrot os it should automatically launch the wayland.
+Now you should have wayland working when you reboot your parrot os it should automatically launch the desktop environment.
 
 if you stopped after installing xorg it should work however you will need CTRL + ALT + F7 to launch the x11 session
 

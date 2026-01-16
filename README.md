@@ -1,6 +1,6 @@
 When installing Parrot os 7 on an nvidia 5000 (Blackwell) series graphic cards there were issues.
 
-At first the system would only boot in tty mode.
+At first the system would only boot in tty mode when booting from the live usb.
 
 To fix this issue I use xorg.
 using:
@@ -8,6 +8,9 @@ using:
     sudo apt install xorg
 
 After that I used startx to launch the interface and be able to install parrot.
+
+    startx
+We click on install Parrot and install it the way we want it configured
 
 The problem we have is that Parrot os uses wayland by default. The parrot os repo also does not have drivers for new graphics cards.
 
@@ -53,16 +56,16 @@ Go to /etc/modprobe.d/
 
     cd /etc/modprobe.d/
 
-and add
+And add
 
 
     blacklist nouveau
     options nouveau modeset=0
     alias nouveau off
 
-to the blacklist-nouveau.conf if you do not have that file it could be blacklist-libnfc.conf
+To the blacklist-nouveau.conf if you do not have that file it could be blacklist-libnfc.conf
 
-int the same folder we do:
+In the same folder we do:
 
     sudo echo "options nvidia-drm modeset=1" > nvidia-kernel-common.conf
     sudo update-initramfs -u
@@ -73,4 +76,4 @@ if you stopped after installing xorg it should work however you will need CTRL +
 
 As the default tty for xorg is 7.
 
-kde plasma wayland can not work without the drivers so use the x11 session.
+KDE plasma wayland can not work without the drivers so use the x11 session.

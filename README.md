@@ -10,7 +10,7 @@ using:
 After that I used startx to launch the interface and be able to install parrot.
 
     startx
-We click on install Parrot and install it the way we want it configured
+We click on install Parrot and install it the way we want it configured.
 
 The problem we have is that Parrot os uses wayland by default. The parrot os repo also does not have drivers for new graphics cards.
 
@@ -40,9 +40,9 @@ After that we change permissions on the .run file to exexcute by using
 
 We choose the MIT/GPL option when it pops up.
 
-Other options are free of your own choosing however adding the kernel option is what I did
+Other options are free of your own choosing however adding the kernel option is what I did.
 
-At one point in the installation it will launch the x11 (xorg) session again
+At one point in the installation it will launch the x11 (xorg) session again.
 
 To exit it just press CTRL + ALT + F1.
 
@@ -63,7 +63,7 @@ And add
     options nouveau modeset=0
     alias nouveau off
 
-To the blacklist-nouveau.conf if you do not have that file it could be blacklist-libnfc.conf
+To the blacklist-nouveau.conf if you do not have that file it could be blacklist-libnfc.conf.
 
 In the same folder we do:
 

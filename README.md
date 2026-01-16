@@ -40,19 +40,19 @@ After that we change permissions on the .run file to exexcute by using :
 
 We choose the MIT/GPL option when it pops up.
 
-Other options are free of your own choosing however adding the kernel option is what I did.
+Other options are free of our own choosing however adding the kernel option is what I did.
 
 At one point in the installation it will launch the x11 (xorg) session again.
 
-To exit it just press CTRL + ALT + F1.
+To exit it we just press CTRL + ALT + F1.
 
-And you will be back in the installer.
+And we will be back in the installer.
 
 After that keep installing the drivers.
 
 Once the drivers finished installing:
 
-Go to /etc/modprobe.d/
+We go to /etc/modprobe.d/
 
     cd /etc/modprobe.d/
 
@@ -63,16 +63,16 @@ And add :
     options nouveau modeset=0
     alias nouveau off
 
-To the blacklist-nouveau.conf if you do not have that file it could be blacklist-libnfc.conf.
+To the blacklist-nouveau.conf if we do not have that file it could be blacklist-libnfc.conf.
 
 In the same folder we do:
 
     sudo echo "options nvidia-drm modeset=1" > nvidia-kernel-common.conf
     sudo update-initramfs -u
 
-Now you should have wayland working when you reboot your parrot os it should automatically launch the desktop environment.
+Now we should have wayland working when we reboot our parrot os it should automatically launch the desktop environment.
 
-if you stopped after installing xorg it should work however you will need CTRL + ALT + F7 to launch the x11 session
+if we stopped after installing xorg it should work however we will need CTRL + ALT + F7 to launch the x11 session
 
 As the default tty for xorg is 7.
 

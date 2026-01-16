@@ -14,9 +14,9 @@ We click on install Parrot and install it the way we want it configured.
 
 The problem we have is that Parrot os uses wayland by default. The parrot os repo also does not have drivers for new graphics cards.
 
-When booting at first the new installation the same problem appears, it will be running on tty1
+When booting at first the new installation the same problem appears, it will be running on tty1.
 
-to fix this we can login then use 
+to fix this we can login then use :
 
     sudo parrot-upgrade
     sudo apt update
@@ -24,7 +24,7 @@ to fix this we can login then use
 
 We can stop here, however we want to be able to use the drivers.
 
-Then we do
+Then we do :
 
     startx
 
@@ -33,7 +33,7 @@ It will launch the desktop environment.
 From here on we go to the Nvidia Website to download the drivers.
 
 
-After that we change permissions on the .run file to exexcute by using
+After that we change permissions on the .run file to exexcute by using :
 
     chmod +x file-name.run
     sudo ./file-name.run
@@ -56,7 +56,7 @@ Go to /etc/modprobe.d/
 
     cd /etc/modprobe.d/
 
-And add
+And add :
 
 
     blacklist nouveau
